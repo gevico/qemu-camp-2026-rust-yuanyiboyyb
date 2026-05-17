@@ -1,18 +1,17 @@
 // clippy1.rs
-// The Clippy tool is a collection of lints to analyze your code
-// so you can catch common mistakes and improve your Rust code.
 //
-// For these exercises the code will fail to compile when there are clippy warnings
-// check clippy's suggestions from the output to solve the exercise.
-// Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a hint.
-
-use std::f32;
+// The Clippy tool is a collection of lints to analyze your code so you can
+// catch common mistakes and improve your Rust code.
+//
+// For these exercises the code will fail to compile when there are Clippy
+// warnings. Check Clippy's suggestions from the output to solve the exercise.
+//
+// Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a
+// hint.
 
 fn main() {
-    let pi = f32::consts::PI;  // 使用标准 PI
-    let radius = 5.0;           // 简化浮点字面量
-
-    let area = pi * radius * radius; // 乘法代替 powi
+    let radius = 5.0_f32;
+    let area = std::f32::consts::PI * radius.powi(2);
 
     println!(
         "The area of a circle with radius {:.2} is {:.5}!",
