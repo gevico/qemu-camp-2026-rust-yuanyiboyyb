@@ -329,7 +329,11 @@ async fn main() {
             let exercise_check_list_ref = Arc::clone(&exercise_check_list);
             exercise_check_list_ref.lock().unwrap().statistics.total_time = total_time as u32;
             let serialized = serde_json::to_string_pretty(&*exercise_check_list.lock().unwrap()).unwrap();
-            fs::write(".github/result/check_result.json", serialized).unwrap();
+            let result_path = ".github/result/check_result.json";
+            if let Some(parent) = std::path::Path::new(result_path).parent() {
+                fs::create_dir_all(parent).unwrap();
+            }
+            fs::write(result_path, serialized).unwrap();
         },
 
         Subcommands::Lsp(_subargs) => {
