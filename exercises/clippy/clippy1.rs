@@ -6,15 +6,13 @@
 // check clippy's suggestions from the output to solve the exercise.
 // Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 use std::f32;
 
 fn main() {
-    let pi = f32::consts::PI; // 使用标准常量
-    let radius = 5.0;          // 简化浮点字面量
+    let pi = f32::consts::PI;  // 使用标准 PI
+    let radius = 5.0;           // 简化浮点字面量
 
-    let area = pi * radius * radius; // 用乘法代替 powi
+    let area = pi * radius * radius; // 乘法代替 powi
 
     println!(
         "The area of a circle with radius {:.2} is {:.5}!",
